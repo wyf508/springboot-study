@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf测试</title>
+    <!--引入URL，无需关注工程名，以绝对路径-->
+    <link th:href="@{/eieapp/data/styles.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<span th:text="${map01.get('test')}"></span><br>
+
+<span th:text="${hello}"></span><br>
+
+<span th:text="${person.age+'----'+person.birth+'---'+person.dog}"></span><br>
+
+<!--可以调用属性的java方法-->
+<span th:text="${person.firstName.toUpperCase()+' : '+person.birth.getDate()}"></span>
+<hr>
+<!--格式化操作-->
+<span th:text="${#calendars.format(person.birth,'yyyy--mm-dd')}"></span>
+<hr>
+
+<span th:text="${#lists.size(lists)}"></span>
+<hr>
+
+<!--使用*表达式-->
+<div>
+    <p>Name: <span th:text="${session.p.firstName}">Sebastian</span>.</p>
+    <p>Surname: <span th:text="${session.p.lastName}">Pepper</span>.</p>
+    <p>Nationality: <span th:text="${session.p.email}">Saturn</span>.</p>
+</div>
+<hr>
+<div th:object="${session.p}">
+    <p>Name: <span th:text="*{firstName}">Sebastian</span>.</p>
+    <p>Surname: <span th:text="*{lastName}">Pepper</span>.</p>
+    <p>Nationality: <span th:text="*{email}">Saturn</span>.</p>
+</div>
+
+<!--URL跳转 可以添加参数-->
+<!--<a th:href="@{'/resume.html/'+${user.login}(orderId=${o.id})}">view</a>
+-->
+<a th:href="@{'/resume.html/'}">view resume</a>
+
+<hr>
+<!--常量(可省略${})，运算，判断等-->
+<span th:text="88*10"></span><br>
+<span th:if="${person.boos}">boos:yes</span>
+<span th:if="${person.boos == false}">boos:no</span>
+
+<!--操作循环-->
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>BIRTH</th>
+    </tr>
+    <tr th:each="prod : ${list2}">
+        <td th:text="${person.firstName}"></td>
+        <td th:text="${person.age}"></td>
+        <td th:text="${person.birth}"></td>
+    </tr>
+</table>
+
+<form name="Form" action="/upload" method="post" enctype="multipart/form-data">
+    <h1>上传文件</h1>
+    <input type="file" name="pic">
+    <input type="submit" value="upload"/>
+</form>
+
+
+</body>
+</html>

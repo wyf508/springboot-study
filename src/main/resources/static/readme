@@ -1,0 +1,5 @@
+#静态资源，可以直接访问，提供四种路径访问
+1.  classpath:/META-INF/resources/
+2.  classpath:/resources/
+3.  classpath:/static/
+3.  classpath:/public/

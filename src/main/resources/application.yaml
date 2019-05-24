@@ -1,0 +1,44 @@
+# servlet:
+#    工程名
+#    context-path: /gg
+#测试获取元数据
+# 开启debug模式
+#debug: true
+person:
+  firstName: www
+  lastName: fang
+  age: ${random.int(30)}
+  boos: false
+  email: 88888888@qq.com
+  birth: 2011/2/8
+  list: [dog, cat, horse]
+  maps: {key1: 55555, key2: ssss}
+  dog:
+    name: 旺财
+    age: ${person.age}
+
+#多profiles环境下的配置（加载同一个配置文件下的对应配置块，或者找到application-dev.properties）
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 8080
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: test
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  type-aliases-package: com.test.pojo
+
+---
+server:
+  port: 8081
+spring:
+  profiles: pro
