@@ -19,11 +19,12 @@
     </properties>
 
     <dependencies>
+        <!--springboot-mvc启动器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!--测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -58,7 +59,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-        <!--mybatis-->
+        <!--mybatis启动器-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -73,7 +74,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.9</version>
+            <version>1.1.16</version>
         </dependency>
     </dependencies>
 

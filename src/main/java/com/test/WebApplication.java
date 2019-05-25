@@ -1,10 +1,11 @@
-package com.test.springbootstudy;
+package com.test;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
-//导入bean配置信息
+@MapperScan("com.test.mapper") ///@MapperScan 用户扫描MyBatis的Mapper
 @ImportResource(locations = {"classpath:beans.xml"})
 @SpringBootApplication
 public class WebApplication {
@@ -14,3 +15,4 @@ public class WebApplication {
     }
 
 }
+//导入bean配置信息

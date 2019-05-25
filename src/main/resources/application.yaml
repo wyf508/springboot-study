@@ -28,14 +28,11 @@ server:
 spring:
   profiles: dev
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
     username: test
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
-
-mybatis:
-  type-aliases-package: com.test.pojo
+    driver-class-name: com.mysql.jdbc.Driver
 
 ---
 server:
