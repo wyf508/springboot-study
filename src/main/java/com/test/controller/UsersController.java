@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @Creator NETTED-WYF
@@ -32,5 +33,13 @@ public class UsersController {
     public String addUser(Users users) {
         userService.addUser(users);
         return "success";
+    }
+
+    //获取user
+    @ResponseBody
+    @RequestMapping("/getUser/{id}")
+    public Users getUser(@PathVariable(value = "id") int id) {
+        Users user = userService.getUser(id);
+        return user;
     }
 }

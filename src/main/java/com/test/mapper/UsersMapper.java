@@ -1,6 +1,7 @@
 package com.test.mapper;
 
 import com.test.pojo.Users;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * @Creator NETTED-WYF
@@ -10,4 +11,7 @@ import com.test.pojo.Users;
 public interface UsersMapper {
 
     void insertUser(Users users);
+
+    @Select("select * from users where id = #{id}")
+    Users getUser(int id);
 }

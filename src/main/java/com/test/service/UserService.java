@@ -9,4 +9,6 @@ import com.test.pojo.Users;
  */
 public interface UserService {
     void addUser(Users users);
+
+    Users getUser(int id);
 }
